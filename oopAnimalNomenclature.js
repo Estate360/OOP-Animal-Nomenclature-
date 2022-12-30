@@ -18,13 +18,8 @@ class Animal {
 
   Alive = true;
 
-  #eat() {
-    return "Animals can eat";
-  }
-
   eat() {
-    this.#eat();
-    return `${this.name} that are ${this.bodyTemperature} and also ${this.skeletalStructure} can eat.`;
+    return "Animals can eat";
   }
 }
 
@@ -41,27 +36,34 @@ class Arthropoda extends Animal {
     super(name, skeletalStructure, bodyTemperature, habitat, lifespan, prey);
   }
 
-  wings() {
-    return `Presence of wings is one of the characteristics of ${this.name}`;
+  static animalKingdom() {
+    return "Arthropoda";
   }
-
+  wings() {
+    return `Presence of wings is one of the characteristics of Arthropoda, e.g is ${this.name}`;
+  }
   circulatorySystem() {
     return `${this.name}s have an open circulatory system`;
   }
-
   sensoryOrgans() {
     return `${this.name}s contain sensory organs like hairs, antennae, simple and compound eyes, auditory organs, and statocyst`;
   }
 }
 
 class Fish extends Animal {
-  constructor(name, skeletalStructure, bodyTemperature, habitat, prey) {
-    super(name, skeletalStructure, bodyTemperature, habitat, prey);
-    super.lifespan = "5 Years";
+  constructor(
+    name,
+    skeletalStructure,
+    bodyTemperature,
+    habitat,
+    lifespan,
+    prey
+  ) {
+    super(name, skeletalStructure, bodyTemperature, habitat, lifespan, prey);
   }
 
   swim() {
-    return `${this.name} with ${this.skeletalStructure} and ${this.bodyTemperature} love to swim.`;
+    return `${this.name} are ${this.bodyTemperature} and ${this.skeletalStructure}. They live in water and feed on inferior members of the population.`;
   }
 }
 
@@ -78,7 +80,7 @@ class Amphibia extends Animal {
   }
 
   jump() {
-    return `${this.name} with ${this.skeletalStructure} loves to jumps on ${this.habitat}.`;
+    return `${this.name}s have bones. They live both in ${this.habitat}.`;
   }
 }
 
@@ -89,17 +91,13 @@ class Reptiles extends Animal {
     bodyTemperature,
     habitat,
     lifespan,
-    prey,
-    diet
+    prey
   ) {
     super(name, skeletalStructure, bodyTemperature, habitat, lifespan, prey);
-    this.diet = diet;
   }
 
   territorial() {
-    console.log(
-      `${this.name} with ${this.skeletalStructure} and ${this.bodyTemperature} are territorial.`
-    );
+    return `${this.name} have ${this.skeletalStructure} and are ${this.bodyTemperature}, this makes them territorial.`;
   }
 }
 
@@ -118,9 +116,7 @@ class Aves extends Animal {
   }
 
   fly() {
-    console.log(
-      `A ${this.name} ${this.skeletalStructure} and ${this.wingspan} span of wings for flying.`
-    );
+    return `A ${this.name} ${this.skeletalStructure} and ${this.wingspan} span of wings for flying.`;
   }
 }
 
@@ -139,22 +135,35 @@ class Mammal extends Animal {
   }
 
   claws() {
-    console.log(
-      ` The ${this.name} ${this.skeletalStructure} and ${this.bodyTemperature} loves to claw.`
-    );
+    return `Most mammals have claws e.g is the ${this.name}. They mostly use it as a mode of defense and protection against predators.
+    `;
+  }
+  soundVoice() {
+   return `${this.name}s ${this.sound}.`;
   }
 }
 
+const animal = new Animal();
+
 const arthropoda = new Arthropoda(
   "butterfly",
-  "withoutbone",
+  "with out bone",
   "coldblooded",
-  "land and air"
+  "land and air",
+  "varies",
+  "vertebrates, spiders, snakes and possums"
 );
-const fish = new Fish("fish", "withbone", "coldblooded", "water", "five years");
+const fish = new Fish(
+  "sharks",
+  "with bone",
+  "coldblooded",
+  "water",
+  "5 years",
+  "bony fishes, sea birds"
+);
 const amphibia = new Amphibia(
   "frog",
-  "withbone",
+  "with bone",
   "coldblooded",
   "water and land",
   "twelve years",
@@ -162,7 +171,7 @@ const amphibia = new Amphibia(
 );
 const reptiles = new Reptiles(
   "tortoise",
-  "withbone",
+  "with bone",
   "coldblooded",
   "water and land",
   "fifty years",
@@ -171,71 +180,49 @@ const reptiles = new Reptiles(
 );
 const aves = new Aves(
   "bird",
-  "withbone",
+  "with bone",
   "warmblooded",
   "air and land",
   "fifty years",
   "chicks",
-  "carrion",
   "one hundred and twenty centimeters"
 );
 const mammal = new Mammal(
   "cat",
-  "withbone",
+  "with bone",
   "warmblooded",
   "land",
   "fourteen years",
   "rat",
-  "rice",
   "meow"
 );
 
-console.log(Animal.name);
-console.log(Animal.bodyTemperature);
-console.log(Animal.skeletalStructure);
+console.log(animal);
+console.log(animal.eat());
 
+console.log("(1)");
+console.log(arthropoda);
+console.log(arthropoda.wings());
+console.log(arthropoda.circulatorySystem());
+console.log(arthropoda.sensoryOrgans());
 
-console.log(arthropoda.name);
-console.log(arthropoda.bodyTemperature);
-console.log(arthropoda.skeletalStructure);
-console.log(arthropoda.habitat);
-console.log(arthropoda.prey);
-console.log(arthropoda.eat());
+console.log("(2)");
+console.log(fish);
+console.log(fish.swim());
 
-console.log(fish.name);
-console.log(fish.bodyTemperature);
-console.log(fish.skeletalStructure);
-console.log(fish.habitat);
-console.log(fish.lifespan);
-console.log(fish.swim);
-console.log(fish.eat);
+console.log("(3)");
+console.log(amphibia);
+console.log(amphibia.jump());
 
-console.log(amphibia.name);
-console.log(amphibia.bodyTemperature);
-console.log(amphibia.skeletalStructure);
-console.log(amphibia.habitat);
-console.log(amphibia.lifespan);
-console.log(amphibia.prey);
-console.log(amphibia.jump);
-console.log(amphibia.eat);
+console.log("(4)");
+console.log(reptiles);
+console.log(reptiles.territorial());
 
-console.log(reptiles.name);
-console.log(reptiles.bodyTemperature);
-console.log(reptiles.skeletalStructure);
-console.log(reptiles.habitat);
-console.log(reptiles.lifespan);
-console.log(reptiles.prey);
-console.log(reptiles.diet);
-console.log(reptiles.territorial);
-console.log(reptiles.eat);
+console.log("(5)");
+console.log(aves);
+console.log(aves.fly());
 
-console.log(aves.name);
-console.log(aves.bodyTemperature);
-console.log(aves.skeletalStructure);
-console.log(aves.habitat);
-console.log(aves.lifespan);
-console.log(aves.prey);
-console.log(aves.diet);
-console.log(aves.wingspan);
-console.log(aves.fly);
-console.log(aves.eat);
+console.log("(6)");
+console.log(mammal);
+console.log(mammal.soundVoice());
+console.log(mammal.claws());
