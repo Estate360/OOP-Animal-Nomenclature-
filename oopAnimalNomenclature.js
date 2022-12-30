@@ -1,4 +1,4 @@
-//Parent Class
+// Parent Class
 class Animal {
   constructor(
     name,
@@ -17,13 +17,10 @@ class Animal {
   }
 
   Alive = true;
-
-  eat() {
-    return "Animals can eat";
-  }
+  Eat = "All Living Animal eats!";
 }
 
-//Inheritance Class
+// Inheritance/Child Class
 class Arthropoda extends Animal {
   constructor(
     name,
@@ -139,12 +136,11 @@ class Mammal extends Animal {
     `;
   }
   soundVoice() {
-   return `${this.name}s ${this.sound}.`;
+    return `${this.name}s ${this.sound}.`;
   }
 }
 
-const animal = new Animal();
-
+// Instantiating the Child Classes
 const arthropoda = new Arthropoda(
   "butterfly",
   "with out bone",
@@ -196,9 +192,6 @@ const mammal = new Mammal(
   "rat",
   "meow"
 );
-
-console.log(animal);
-console.log(animal.eat());
 
 console.log("(1)");
 console.log(arthropoda);
